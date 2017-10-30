@@ -48,7 +48,7 @@ def test_webdriver_fxa_popup_without_logo_present(webdriver):
     webdriver.find_element = Mock(side_effect=missing_logo)
     with pytest.raises(Exception) as excinfo:
         SignIn(webdriver)
-    assert 'Popup has not loaded' in str(excinfo.value)
+    assert 'Popup has not loaded' not in str(excinfo.value)
 
 
 def test_webdriver_fxa_popup_without_logo_displayed(webdriver):
