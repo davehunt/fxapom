@@ -6,7 +6,9 @@ def capabilities = [
 ]
 
 pipeline {
-  agent any
+  agent {
+    dockerfile true
+  }
   libraries {
     lib('fxtest@1.9')
   }
