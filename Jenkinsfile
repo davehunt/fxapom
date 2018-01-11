@@ -39,7 +39,9 @@ pipeline {
       parallel {
         stage('py36') {
           agent {
-            dockerfile true
+            dockerfile {
+              args '-v $HOME/.tox:$WORKSPACE/.tox'
+            }
           }
           steps {
             writeCapabilities(capabilities, 'capabilities.json')
