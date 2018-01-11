@@ -1,14 +1,15 @@
 FROM alpine:latest
 
 ENV MOZ_HEADLESS=1
+ENV SETUPTOOLS_SCM_PRETEND_VERSION=2.0.0
 
 RUN mkdir /opt
 RUN echo @testing http://nl.alpinelinux.org/alpine/edge/testing >> /etc/apk/repositories
 RUN apk --no-cache add \
     curl \
     firefox@testing \
-    gcc \
     git \
+    gcc \
     libffi-dev \
     musl-dev \
     openssl-dev \
@@ -28,5 +29,6 @@ RUN curl -fsSLo /tmp/geckodriver.tar.gz https://github.com/mozilla/geckodriver/r
 ENV TOX_VERSION=2.9.1
 RUN pip3 install tox==$TOX_VERSION
 
-ADD . /src
+COPY . /src
 WORKDIR /src
+RUN tox --notest

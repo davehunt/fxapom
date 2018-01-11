@@ -102,9 +102,7 @@ contributions are very welcome. You can run the tests using
 .. code-block:: bash
 
   $ docker build -t fxapom .
-  $ docker run -it fxapom tox
-
-Using
+  $ docker run -it fxapom
 
 Resources
 ---------

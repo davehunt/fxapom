@@ -1,8 +1,12 @@
 .cache
+.git
 .tox
 **/__pycache__
 **/*.pyc
 build
+CHANGES.rst
 dist
 fxapom.egg-info
+Jenkinsfile
+LICENSE.txt
 results
